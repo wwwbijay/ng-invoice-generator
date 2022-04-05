@@ -11,6 +11,9 @@ export class InvoiceComponent implements OnInit {
   companyLogo:any;
   companyLogoPath:any;
   countryList:any;
+
+
+
   constructor() { }
 
   ngOnInit(): void {
@@ -25,6 +28,10 @@ export class InvoiceComponent implements OnInit {
         this.companyLogoPath=event.target.result;
       }
     }
+  }
+
+  addLineItem(){
+  
 
   }
 

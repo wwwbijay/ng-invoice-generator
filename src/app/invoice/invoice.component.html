@@ -12,8 +12,8 @@
 
                 </div>
                 <div class="contact-from">
-                    <input type="text" id="address1" class="adr bld f20" style="height: 30px" tabindex="1"
-                        autofocus="focus" placeholder="Your Company">
+                    <input type="text" id="address1" class="adr bld f20" tabindex="1" autofocus="focus"
+                        placeholder="Your Company">
 
                     <input type="text" id="custName" class="adr" placeholder="Your Name">
 
@@ -47,7 +47,7 @@
                 <div class="vtop comp-addr-invoice added-placeholder">
                     <input class="c-name" type="text" value="INVOICE" id="title" name="title">
                 </div>
-                <table class="bill" style="table-layout: fixed" width="100%" cellspacing="0" cellpadding="0">
+                <table class="bill" width="100%" cellspacing="0" cellpadding="0">
                     <tbody>
                         <tr>
                             <td class="lft-txt added-placeholder" width="40%">
@@ -105,7 +105,7 @@
         </div>
         <!--.invoice-details END-->
         <div class="item-table">
-            <table class="column" style="table-layout: fixed" width="100%" cellspacing="0" cellpadding="0">
+            <table class="column" width="100%" cellspacing="0" cellpadding="0">
                 <thead>
                     <tr class="hd">
                         <th class="added-placeholder" width="48%">
@@ -121,9 +121,9 @@
 
 
                         <th width="18%">
-                            <input type="text" value="Amount" id="itemAmtLabel" style="text-align:right;" name="amount">
+                            <input type="text" value="Amount" id="itemAmtLabel" name="amount">
                         </th>
-                        <th style="border-bottom:none;background:none;border-top:none" class="dele-icon" width="2%">
+                        <th class="dele-icon" width="2%">
                             &nbsp;</th>
                     </tr>
                 </thead>
@@ -161,14 +161,17 @@
                     <tr>
                         <td id="add-new-item">
                             <div>
-                                <a title="Add Row"><span class="add">&nbsp;</span>Add Line Item</a>
+                                <a (click)="addLineItem()" class="icon_button" title="Add Row">
+                                    <span class="circle">
+                                        <span class="material-icons ">add</span>
+                                    </span>
+                                    <span class="text">Add Item</span>
+                                </a>
                             </div>
                         </td>
-                        <td id="total-section" colspan="3" style="border-right:none;">
-                            <table style="margin-left:10px;border-bottom:solid 1px #c7c7c7;" width="100%"
-                                cellspacing="0" cellpadding="0">
+                        <td id="total-section" colspan="3">
+                            <table width="100%" cellspacing="0" cellpadding="0">
                                 <tbody>
-
                                     <tr class="sav-amo text-right">
                                         <td class="bdr-non" width="40%">
                                             <input type="text" value="Sub Total" class="total-label" id="subTotalLabel"
