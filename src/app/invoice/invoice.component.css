@@ -1,85 +1,110 @@
-.invoice-wrap{
-    display: flex;
+.invoice-wrap {
+  display: flex;
 }
-.invoice-body{
-    background: #fff;
-    width: 70%;
-    padding: 50px;
-    margin: 50px 0;
-    box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 30px 0px;
-    border-radius: 30px;
+.invoice-body {
+  background: #fff;
+  width: 70%;
+  padding: 50px 30px;
+  margin: 50px 0;
+  box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 30px 0px;
+  border-radius: 30px;
 }
-.invoice-sidebar{
-    width: 30%;
+.invoice-sidebar {
+  width: 30%;
 }
-.add-logo{
-    width: 200px;
-    overflow: hidden;
-    position: relative;
+.add-logo {
+  width: 200px;
+  overflow: hidden;
+  position: relative;
 }
-.logo-placeholder{
-    width: 100%;
-    height: 130px;
-    line-height: 130px;
-    background: #f5f5f5;
-    border-radius: 4px;
-    text-align: center;
-    border: 1px solid rgba(0,0,0,.1);
-    display: block;
-    cursor: pointer;
+.logo-placeholder {
+  width: 100%;
+  height: 130px;
+  line-height: 130px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: block;
+  cursor: pointer;
 }
-.add-logo img{
-    border-radius: 5px;
-    max-width: 200px;
-    max-height: 140px;
+.add-logo img {
+  border-radius: 5px;
+  max-width: 200px;
+  max-height: 140px;
 }
 .add-logo input[type="file"] {
-    cursor: pointer !important;
-    width: 100%;
-    height: 20px;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    padding: 0;
-    line-height: 100%;
-    height: 130px;
-    top: 0;
-  }
+  cursor: pointer !important;
+  width: 100%;
+  height: 20px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  padding: 0;
+  line-height: 100%;
+  height: 130px;
+  top: 0;
+}
 .invoice-details,
-.item-table{
-    padding-bottom: 20px;
+.item-table {
+  padding-bottom: 20px;
 }
-.contact-from{
-    margin: 10px 0;
+.contact-from {
+  margin: 10px 0;
 }
-.invoice-details-info{
-    width: 50%;
-    padding: 0 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.invoice-details-info {
+  width: 50%;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
-.item-table table{
-    text-align: center;
+.item-table table {
+  text-align: center;
+}
+.lineItems td {
+  text-align: left;
 }
 #total-section,
-#total-section table{
-    text-align: right;
+#total-section table {
+  text-align: right;
 }
-.item-table table thead{
-    background: #333;
-    color: #fff;
+.item-table table thead {
+  background: #333;
+  color: #fff;
 }
-.item-table th{
-    padding: 10px;
+.item-table th {
+  padding: 10px;
+  text-align: left;
 }
-#title{
-    font-size: 40px;
-    height: auto;
+#title {
+  font-size: 40px;
+  height: auto;
 }
-
-.row-item td{
-    border-bottom: 1px solid #eee;
-    padding: 10px 0;
+.row-item {
+  animation: fadeInAnimation ease 0.4s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  position: relative;
 }
-
+.row-item td {
+  border-bottom: 1px solid #eee;
+  padding: 5px;
+}
+.subtotal-table {
+  margin-top: 10px;
+}
+.dele-icon.dele-icon.dele-icon {
+  font-size: 14px;
+  text-align: center;
+}
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+    bottom: -30px;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0;
+  }
+}

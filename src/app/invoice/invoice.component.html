@@ -1,254 +1,450 @@
 <div class="invoice-wrap row">
-    <!--.invoice-body START-->
-    <main class="invoice-body col col-8">
-        <div class="invoice-details row">
-            <div class="invoice-details-contact col col-6">
-                <div class="add-logo">
-                    <label *ngIf="!companyLogoPath" class="logo-placeholder" for="add-logo">
-                        Add Your Logo
-                    </label>
-                    <img *ngIf="!!companyLogoPath" src="{{companyLogoPath}}">
-                    <input (change)="uploadLogo($event)" id="add-logo" type="file" accept="image/*" />
-
-                </div>
-                <div class="contact-from">
-                    <input type="text" id="address1" class="adr bld f20" tabindex="1" autofocus="focus"
-                        placeholder="Your Company">
-
-                    <input type="text" id="custName" class="adr" placeholder="Your Name">
-
-                    <input type="text" id="address2" class="adr" placeholder="Company’s Address">
-
-                    <input type="text" class="adr" id="address3" placeholder="City, State Zip">
-
-                    <input type="text" class="adr" tabindex="4" id="companyCountry" placeholder="Country"
-                        name="company_country" data-json-node="company_country" data-is-array="false"
-                        onfocus="InvoiceGenerator.showStateSelect('companyCountry')">
-                    <br>
-                </div>
-                <!--.contact-from END-->
-                <div class="bill-to">
-
-                    <input type="text" value="Bill To:" id="billToLabel" class="adr bill-to bld">
-                    <input type="text" id="billingAddress1" class="adr" placeholder="Your Client’s Company">
-
-                    <input type="text" id="billingAddress2" class="adr" placeholder="Client’s Address">
-
-                    <input type="text" class="adr" id="billingAddress3" placeholder="City, State Zip">
-
-                    <input type="text" class="adr" id="customerCountry" placeholder="Country"
-                        name="customer_billing_country">
-
-                </div>
-                <!--.bill-to END-->
-            </div>
-            <!--.invoice-details-contact END-->
-            <div class="invoice-details-info col col-6 text-right">
-                <div class="vtop comp-addr-invoice added-placeholder">
-                    <input class="c-name" type="text" value="INVOICE" id="title" name="title">
-                </div>
-                <table class="bill" width="100%" cellspacing="0" cellpadding="0">
-                    <tbody>
-                        <tr>
-                            <td class="lft-txt added-placeholder" width="40%">
-                                <input type="text" value="Invoice#" id="invNumberLabel" class="bld text-left w100"
-                                    name="invoice_number_label">
-                            </td>
-                            <td>
-                                <input type="text" class="w100" id="invNumber" placeholder="INV-12"
-                                    name="invoice_number">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="lft-txt">
-                                <input type="text" value="Invoice Date" id="invoiceDateLabel" class="bld text-left w100"
-                                    name="invoice_date_label">
-                            </td>
-                            <td>
-                                <input class="w100" type="text" id="invoiceDate" placeholder="Apr 04, 2022"
-                                    name="invoice_date">
-                            </td>
-                        </tr>
-                        <tr>
-                        </tr>
-                        <tr>
-                            <td class="lft-txt">
-                                <input value="Due Date" id="dueDateLabel" class="bld text-left w100" type="text"
-                                    name="due_date_label">
-                            </td>
-                            <td>
-                                <input id="dueDate" class="w100" type="text" placeholder="Apr 04, 2022" name="due_date">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="lft-txt">
-                                <input value="PO Number" id="poNumberLabel" class="bld text-left w100" type="text"
-                                    name="due_date_label">
-                            </td>
-                            <td>
-                                <input id="poNumber" type="text" placeholder="00" name=" po_number">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="lft-txt">
-                                <input value="Due Date" id="dueDateLabel" class="bld text-left w100" type="text"
-                                    name="due_date_label">
-                            </td>
-                            <td>
-                                <input id="dueDate" class="w100" type="text" placeholder="Apr 04, 2022" name="due_date">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!--.invoice-details-info END-->
+  <!--.invoice-body START-->
+  <main class="invoice-body col col-8">
+    <div class="invoice-details row">
+      <div class="invoice-details-contact col col-6">
+        <div class="add-logo">
+          <label
+            *ngIf="!companyLogoPath"
+            class="logo-placeholder"
+            for="add-logo"
+          >
+            Add Your Logo
+          </label>
+          <img *ngIf="!!companyLogoPath" src="{{ companyLogoPath }}" />
+          <input
+            (change)="uploadLogo($event)"
+            id="add-logo"
+            type="file"
+            accept="image/*"
+          />
         </div>
-        <!--.invoice-details END-->
-        <div class="item-table">
-            <table class="column" width="100%" cellspacing="0" cellpadding="0">
-                <thead>
-                    <tr class="hd">
-                        <th class="added-placeholder" width="48%">
-                            <input type="text" id="itemDescLabel" value="Item Description" class="bld" tabindex="19"
-                                name="name">
-                        </th>
-                        <th width="17%">
-                            <input type="text" class="bld" value="Qty" id="itemQtyLabel" name="quantity">
-                        </th>
-                        <th width="17%">
-                            <input type="text" class="bld" value="Rate" id="itemRateLabel" name="rate">
-                        </th>
+        <div class="contact-from">
+          <input
+            type="text"
+            id="address1"
+            class="adr bld f20"
+            placeholder="Your Company"
+          />
 
+          <input
+            type="text"
+            id="custName"
+            class="adr"
+            placeholder="Your Name"
+          />
 
-                        <th width="18%">
-                            <input type="text" value="Amount" id="itemAmtLabel" name="amount">
-                        </th>
-                        <th class="dele-icon" width="2%">
-                            &nbsp;</th>
-                    </tr>
-                </thead>
+          <input
+            type="text"
+            id="address2"
+            class="adr"
+            placeholder="Company’s Address"
+          />
 
-                <tbody class="lineItems">
-                    <tr class="row-item " id="lineItem.1">
-                        <td>
-                            <textarea type="text" class="w100" tabindex="21" id="itemDesc.1"
-                                placeholder="Enter item name/description" name="itemDesc.1">Brochure Design</textarea>
+          <input
+            type="text"
+            class="adr"
+            id="address3"
+            placeholder="City, State Zip"
+          />
 
-                        </td>
-                        <td>
-                            <input type="number" class="w100 text-right" value="2" tabindex="21" id="itemQty.1"
-                                name="itemQty.1">
-                        </td>
-                        <td>
-                            <input type="text" class="w100 text-right" value="100.00" tabindex="21" id="itemRate.1"
-                                name="itemRate.1">
-                        </td>
+          <input
+            type="text"
+            class="adr"
+            id="companyCountry"
+            placeholder="Country"
+            name="company_country"
+            data-json-node="company_country"
+            data-is-array="false"
+            onfocus="InvoiceGenerator.showStateSelect('companyCountry')"
+          />
+          <br />
+        </div>
+        <!--.contact-from END-->
+        <div class="bill-to">
+          <input
+            type="text"
+            value="Bill To:"
+            id="billToLabel"
+            class="adr bill-to bld"
+          />
+          <input
+            type="text"
+            id="billingAddress1"
+            class="adr"
+            placeholder="Your Client’s Company"
+          />
 
+          <input
+            type="text"
+            id="billingAddress2"
+            class="adr"
+            placeholder="Client’s Address"
+          />
 
-                        <td>
-                            <input type="text" readonly="" id="itemTotal.1" title="Amount is calculated automatically."
-                                name="itemTotal.1">
-                        </td>
+          <input
+            type="text"
+            class="adr"
+            id="billingAddress3"
+            placeholder="City, State Zip"
+          />
 
-                        <td class="dele-icon">
-                            <div><a class="closeicon hide" title="Delete Row" id="itemClose.1"><span
-                                        class="del">&nbsp;</span></a> </div>
-                        </td>
-                    </tr>
-                </tbody>
+          <input
+            type="text"
+            class="adr"
+            id="customerCountry"
+            placeholder="Country"
+            name="customer_billing_country"
+          />
+        </div>
+        <!--.bill-to END-->
+      </div>
+      <!--.invoice-details-contact END-->
+      <div class="invoice-details-info col col-6 text-right">
+        <div class="vtop comp-addr-invoice added-placeholder">
+          <input
+            class="c-name"
+            type="text"
+            value="INVOICE"
+            id="title"
+            name="title"
+          />
+        </div>
+        <table class="bill" width="100%" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td class="lft-txt added-placeholder" width="40%">
+                <input
+                  type="text"
+                  value="Invoice#"
+                  id="invNumberLabel"
+                  class="bld text-left w100"
+                  name="invoice_number_label"
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="w100"
+                  id="invNumber"
+                  placeholder="INV-12"
+                  name="invoice_number"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td class="lft-txt">
+                <input
+                  type="text"
+                  value="Invoice Date"
+                  id="invoiceDateLabel"
+                  class="bld text-left w100"
+                  name="invoice_date_label"
+                />
+              </td>
+              <td>
+                <input
+                  class="w100"
+                  type="text"
+                  id="invoiceDate"
+                  placeholder="Apr 04, 2022"
+                  name="invoice_date"
+                />
+              </td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td class="lft-txt">
+                <input
+                  value="Due Date"
+                  id="dueDateLabel"
+                  class="bld text-left w100"
+                  type="text"
+                  name="due_date_label"
+                />
+              </td>
+              <td>
+                <input
+                  id="dueDate"
+                  class="w100"
+                  type="text"
+                  placeholder="Apr 04, 2022"
+                  name="due_date"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td class="lft-txt">
+                <input
+                  value="PO Number"
+                  id="poNumberLabel"
+                  class="bld text-left w100"
+                  type="text"
+                  name="due_date_label"
+                />
+              </td>
+              <td>
+                <input
+                  id="poNumber"
+                  type="text"
+                  placeholder="00"
+                  name=" po_number"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td class="lft-txt">
+                <input
+                  value="Due Date"
+                  id="dueDateLabel"
+                  class="bld text-left w100"
+                  type="text"
+                  name="due_date_label"
+                />
+              </td>
+              <td>
+                <input
+                  id="dueDate"
+                  class="w100"
+                  type="text"
+                  placeholder="Apr 04, 2022"
+                  name="due_date"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--.invoice-details-info END-->
+    </div>
+    <!--.invoice-details END-->
+    <div class="item-table">
+      <table class="column" width="100%" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr class="hd">
+            <th class="added-placeholder" width="45%">
+              <input
+                type="text"
+                id="itemDescLabel"
+                value="Item Description"
+                class="bld"
+                name="name"
+              />
+            </th>
+            <th width="10%">
+              <input
+                type="text"
+                class="bld"
+                value="Qty"
+                id="itemQtyLabel"
+                name="quantity"
+              />
+            </th>
+            <th width="15%">
+              <input
+                type="text"
+                class="bld"
+                value="Rate"
+                id="itemRateLabel"
+                name="rate"
+              />
+            </th>
+            <th width="20%">
+              <input
+                type="text"
+                value="Amount"
+                id="itemAmtLabel"
+                name="amount"
+              />
+            </th>
+            <th class="dele-icon" width="10%">Action</th>
+          </tr>
+        </thead>
 
+        <tbody class="lineItems">
+          <tr class="row-item" *ngFor="let item of itemLists">
+            <td>
+              <textarea
+                type="text"
+                class="w100"
+                id="itemDesc.{{ item.value }}"
+                placeholder="Enter item name/description"
+                name="itemDesc.{{ item.value }}"
+                data-gramm_editor="false"
+              ></textarea>
+            </td>
+            <td>
+              <input
+                type="number"
+                class="w100 text-right"
+                [(ngModel)]="itemQty[item.value]"
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="w100 text-right"
+                value="100.00"
+                id="itemRate.{{ item.value }}"
+                [(ngModel)]="itemRate[item.value]"
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                readonly=""
+                id="itemTotal.{{ item.value }}"
+                title="Amount is calculated automatically."
+                [(ngModel)]="itemTotal[item.value]"
+              />
+            </td>
+            <td class="dele-icon">
+              <div>
+                <a
+                  class="closeicon hide"
+                  (click)="deleteRow(item.value)"
+                  title="Delete Row"
+                  ><span class="material-icons">cancel</span></a
+                >
+              </div>
+            </td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <td id="add-new-item">
+              <div>
+                <a (click)="addLineItem()" class="icon_button" title="Add Row">
+                  <span class="circle">
+                    <span class="material-icons">add</span>
+                  </span>
+                  <span class="text">Add Item</span>
+                </a>
+              </div>
+            </td>
+            <td id="total-section" colspan="3">
+              <table
+                class="subtotal-table"
+                width="100%"
+                cellspacing="0"
+                cellpadding="0"
+              >
                 <tbody>
-                    <tr>
-                        <td id="add-new-item">
-                            <div>
-                                <a (click)="addLineItem()" class="icon_button" title="Add Row">
-                                    <span class="circle">
-                                        <span class="material-icons ">add</span>
-                                    </span>
-                                    <span class="text">Add Item</span>
-                                </a>
-                            </div>
-                        </td>
-                        <td id="total-section" colspan="3">
-                            <table width="100%" cellspacing="0" cellpadding="0">
-                                <tbody>
-                                    <tr class="sav-amo text-right">
-                                        <td class="bdr-non" width="40%">
-                                            <input type="text" value="Sub Total" class="total-label" id="subTotalLabel"
-                                                tabindex="24" name="sub_total_label">
-                                        </td>
-                                        <td class="bdr-non">
-                                            <span class="amount bld cursor-disabled" id="subTotal"
-                                                title="Sub total is calculated automatically."
-                                                name="sub_total">200.00</span>
-                                        </td>
-                                    </tr>
+                  <tr class="sav-amo text-right">
+                    <td class="bdr-non" width="40%">
+                      <input
+                        type="text"
+                        value="Sub Total"
+                        class="total-label"
+                        id="subTotalLabel"
+                        name="sub_total_label"
+                      />
+                    </td>
+                    <td class="bdr-non">
+                      <span
+                        class="amount bld cursor-disabled"
+                        id="subTotal"
+                        title="Sub total is calculated automatically."
+                        name="sub_total"
+                        >200.00</span
+                      >
+                    </td>
+                  </tr>
 
-                                    <tr class="text-right">
-                                        <td width="40%">
-
-                                            <input type="text" value="Sales Tax (10%)" tabindex="25" class="total-label"
-                                                id="taxLabel" name="tax_name">
-
-                                        </td>
-                                        <td>
-                                            <span class="amount bld cursor-disabled" id="taxAmt"
-                                                title="Tax amount is calculated automatically." name="tax">20.00</span>
-                                        </td>
-                                    </tr>
-                                    <tr class="tot">
-                                        <td width="40%">
-                                            <input type="text" value="TOTAL" class="total-label" id="totalLabel"
-                                                tabindex="26" name="total_label">
-                                        </td>
-                                        <td>
-                                            <span class="amount bld cursor-disabled" id="total"
-                                                title="Amount is calculated automatically." name="total">240.00</span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-
-                    </tr>
-
+                  <tr class="text-right">
+                    <td width="40%">
+                      <input
+                        type="text"
+                        value="Sales Tax (10%)"
+                        class="total-label"
+                        id="taxLabel"
+                        name="tax_name"
+                      />
+                    </td>
+                    <td>
+                      <span
+                        class="amount bld cursor-disabled"
+                        id="taxAmt"
+                        title="Tax amount is calculated automatically."
+                        name="tax"
+                        >20.00</span
+                      >
+                    </td>
+                  </tr>
+                  <tr class="tot">
+                    <td width="40%">
+                      <input
+                        type="text"
+                        value="TOTAL"
+                        class="total-label"
+                        id="totalLabel"
+                        name="total_label"
+                      />
+                    </td>
+                    <td>
+                      <span
+                        class="amount bld cursor-disabled"
+                        id="total"
+                        title="Amount is calculated automatically."
+                        name="total"
+                        >240.00</span
+                      >
+                    </td>
+                  </tr>
                 </tbody>
-                <tbody>
-                </tbody>
-            </table>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--.item-table END-->
+    <div class="invoice-footer">
+      <div class="added-placeholder">
+        <input
+          type="text"
+          class="terms bld"
+          value="Notes"
+          id="notesLabel"
+          name="notes_label"
+        />
+      </div>
+      <div>
+        <textarea
+          class="note"
+          id="customerNotes"
+          name="notes"
+          placeholder="It was great doing business with you."
+        ></textarea>
+      </div>
+
+      <div class="terms-holder">
+        <div class="field">
+          <input
+            type="text"
+            id="termsLabel"
+            class="input-label bld"
+            value="Terms & Conditions"
+            name="terms_and_conditions_label"
+          />
         </div>
-        <!--.item-table END-->
-        <div class="invoice-footer">
-            <div class="added-placeholder">
-                <input type="text" class="terms bld" value="Notes" id="notesLabel" name="notes_label">
-            </div>
-            <div>
-                <textarea class="note" id="customerNotes" tabindex="29" name="notes"
-                    placeholder="It was great doing business with you."></textarea>
-            </div>
-
-            <div class="terms-holder">
-                <div class="field">
-                    <input type="text" id="termsLabel" class="input-label bld" value="Terms & Conditions"
-                        name="terms_and_conditions_label">
-                </div>
-                <div class="value">
-                    <div class="expandingText"><textarea class="terms"
-                            placeholder="Terms and conditions - late fees, payment methods, delivery schedule"></textarea>
-
-                    </div>
-                </div>
-            </div>
-
+        <div class="value">
+          <div class="expandingText">
+            <textarea
+              class="terms"
+              placeholder="Terms and conditions - late fees, payment methods, delivery schedule"
+            ></textarea>
+          </div>
         </div>
-        <!--.invoice-footer END-->
-    </main>
-    <!--.invoice-body END-->
+      </div>
+    </div>
+    <!--.invoice-footer END-->
+  </main>
+  <!--.invoice-body END-->
 
-    <!--.invoice-sidebar START-->
-    <aside class="invoice-sidebar col col-4">
-
-    </aside>
-    <!--.invoice-sidebar END-->
+  <!--.invoice-sidebar START-->
+  <aside class="invoice-sidebar col col-4"></aside>
+  <!--.invoice-sidebar END-->
 </div>
 <!--invoice-->

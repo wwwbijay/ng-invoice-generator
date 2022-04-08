@@ -12,7 +12,13 @@ export class InvoiceComponent implements OnInit {
   companyLogoPath:any;
   countryList:any;
 
+  index=0;
+  itemQty:Array<any> = [1];
+  itemRate:Array<any> = [0];
+  itemTotal:Array<any> = [0];
 
+
+  itemLists:Array<any> = [ {value: 0} ];
 
   constructor() { }
 
@@ -31,8 +37,12 @@ export class InvoiceComponent implements OnInit {
   }
 
   addLineItem(){
-  
+    let len = this.itemLists.length;
+    this.itemLists.push({value:len});
+  }
 
+  deleteRow(index:any){
+    this.itemLists.splice(index,1);
   }
 
 }
