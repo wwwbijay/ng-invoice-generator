@@ -11,8 +11,10 @@ export class InvoiceComponent implements OnInit {
   companyLogo: any;
   companyLogoPath: any;
   countryList: any;
-
-  subscription: any;
+  subTotal:any;
+  total:any;
+  discount = 0;
+  salesTax = 13;
 
   invoiceInfoForm!: FormGroup;
   constructor(private _fb: FormBuilder) {}
@@ -31,8 +33,8 @@ export class InvoiceComponent implements OnInit {
         this._fb.group({
           itemDescription: this._fb.control(null),
           qty: this._fb.control(1),
-          rate: this._fb.control(1),
-          amount: this._fb.control(1),
+          rate: this._fb.control(0),
+          amount: this._fb.control(0),
         }),
       ]),
     });
@@ -70,6 +72,7 @@ export class InvoiceComponent implements OnInit {
   updateAmount(index: any) {
     let qty = 0;
     let rate = 0;
+    var sum = 0;
     let allItems = this.invoiceInfoForm.controls['items'] as FormArray;
     let formGroup = allItems.at(index) as FormGroup;
 
@@ -77,5 +80,28 @@ export class InvoiceComponent implements OnInit {
     rate = formGroup.get('rate')?.value;
     formGroup.get('amount')?.patchValue(qty * rate)
     //formGroup.get('amount').patchValue(111);
+    
+    for (let c of allItems.controls) {
+      sum = sum + c.get('amount')?.value;
+    }
+    this.subTotal = sum;
+    this.calcTotal();
+    
   }
+
+  calcTotal(){
+    let sum = this.subTotal;
+
+    if(!!this.discount){
+      sum = (sum - (this.discount * sum)/100).toFixed(2);
+    }
+    
+    if(!!this.salesTax){
+      this.total = (sum + (this.salesTax * sum)/100).toFixed(2);
+    }else{
+      this.total = sum
+    }
+  }
+
+
 }

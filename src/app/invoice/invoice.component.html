@@ -144,13 +144,7 @@
                   />
                 </td>
                 <td>
-                  <input
-                    class="w100"
-                    type="text"
-                    id="invoiceDate"
-                    placeholder="Apr 04, 2022"
-                    name="invoice_date"
-                  />
+                  <np-datepicker theme="light"></np-datepicker>
                 </td>
               </tr>
               <tr></tr>
@@ -165,13 +159,7 @@
                   />
                 </td>
                 <td>
-                  <input
-                    id="dueDate"
-                    class="w100"
-                    type="text"
-                    placeholder="Apr 04, 2022"
-                    name="due_date"
-                  />
+                  <np-datepicker theme="light"></np-datepicker>
                 </td>
               </tr>
               <tr>
@@ -296,12 +284,12 @@
                     />
                   </td>
                   <td>
-                   
                     <input
                       formControlName="amount"
                       type="text"
                       readonly=""
                       title="Amount is calculated automatically."
+                      class="readonly"
                     />
                   </td>
                   <td class="dele-icon">
@@ -335,7 +323,7 @@
                   </a>
                 </div>
               </td>
-              <td id="total-section" colspan="3">
+              <td id="total-section" colspan="4">
                 <table
                   class="subtotal-table"
                   width="100%"
@@ -354,13 +342,15 @@
                         />
                       </td>
                       <td class="bdr-non">
-                        <span
-                          class="amount bld cursor-disabled"
-                          id="subTotal"
-                          title="Sub total is calculated automatically."
-                          name="sub_total"
-                          >200.00</span
-                        >
+                        <input
+                          type="text"
+                            name="subTotal"
+                            id="subTotal"
+                            class="percent_input readonly"
+                            readonly=""
+                            [(ngModel)]="subTotal"
+                            [ngModelOptions]="{standalone: true}"
+                          />
                       </td>
                     </tr>
 
@@ -368,20 +358,48 @@
                       <td width="40%">
                         <input
                           type="text"
-                          value="Sales Tax (10%)"
-                          class="total-label"
+                          value="Discount"
+                          class="tax-label"
                           id="taxLabel"
                           name="tax_name"
                         />
                       </td>
                       <td>
-                        <span
-                          class="amount bld cursor-disabled"
-                          id="taxAmt"
-                          title="Tax amount is calculated automatically."
-                          name="tax"
-                          >20.00</span
-                        >
+                        <div class="tax_percent">
+                          <input
+                          (change)="calcTotal()"
+                            type="text"
+                            name="discount_percent_input"
+                            class="percent_input "
+                            [(ngModel)]="discount"
+                            [ngModelOptions]="{standalone: true}"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+
+
+                    <tr class="text-right">
+                      <td width="40%">
+                        <input
+                          type="text"
+                          value="Sales Tax"
+                          class="tax-label"
+                          id="taxLabel"
+                          name="tax_name"
+                        />
+                      </td>
+                      <td>
+                        <div class="tax_percent">
+                          <input
+                          (change)="calcTotal()"
+                            type="text"
+                            name="tax_percent_input"
+                            class="percent_input"
+                            [(ngModel)]="salesTax"
+                            [ngModelOptions]="{standalone: true}"
+                          />
+                        </div>
                       </td>
                     </tr>
                     <tr class="tot">
@@ -395,13 +413,16 @@
                         />
                       </td>
                       <td>
-                        <span
-                          class="amount bld cursor-disabled"
-                          id="total"
-                          title="Amount is calculated automatically."
+                        <input
+                        type="text"
+                        readonly=""
                           name="total"
-                          >240.00</span
-                        >
+                          id="total"
+                          class="percent_input readonly"
+                          [(ngModel)]="total"
+                          [ngModelOptions]="{standalone: true}"
+                        />
+                       
                       </td>
                     </tr>
                   </tbody>
