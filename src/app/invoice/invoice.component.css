@@ -85,6 +85,7 @@
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   position: relative;
+  text-align: left;
 }
 .row-item td {
   border-bottom: 1px solid #eee;

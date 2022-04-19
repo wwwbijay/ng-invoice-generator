@@ -101,7 +101,7 @@
           <!--.bill-to END-->
         </div>
         <!--.invoice-details-contact END-->
-        <div class="invoice-details-info col col-6 text-right">
+        <div class="invoice-details-info col col-6">
           <div class="vtop comp-addr-invoice added-placeholder">
             <input
               class="c-name"
@@ -267,7 +267,7 @@
               <ng-container
                 *ngFor="let itemForm of items.controls; let i = index"
               >
-                <tr lessonForm>
+                <tr [formGroupName]="i">
                   <td>
                     <textarea
                       type="text"
@@ -279,21 +279,26 @@
                   </td>
                   <td>
                     <input
+                      #qty{{i}}
                       formControlName="qty"
                       type="number"
-                      class="w100 text-right"
+                      class="w100"
+                      (change)="updateAmount(i)"
                     />
                   </td>
                   <td>
                     <input
+                      #rate{{i}}
                       formControlName="rate"
                       type="text"
-                      class="w100 text-right"
-                      value=""
+                      class="w100"
+                      (change)="updateAmount(i)"
                     />
                   </td>
                   <td>
+                   
                     <input
+                      formControlName="amount"
                       type="text"
                       readonly=""
                       title="Amount is calculated automatically."
@@ -303,7 +308,7 @@
                     <div>
                       <a
                         class="closeicon hide"
-                        (click)="deleteRow(i)"
+                        (click)="deleteLineItem(i)"
                         title="Delete Row"
                         ><span class="material-icons">cancel</span></a
                       >
@@ -338,7 +343,7 @@
                   cellpadding="0"
                 >
                   <tbody>
-                    <tr class="sav-amo text-right">
+                    <tr class="sav-amo">
                       <td class="bdr-non" width="40%">
                         <input
                           type="text"
