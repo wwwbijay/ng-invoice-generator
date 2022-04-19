@@ -1,6 +1,6 @@
 <div class="invoice-wrap row">
   <!--.invoice-body START-->
-  <main class="invoice-body col col-8">
+  <main id="pdfTable" #pdfTable class="invoice-body col col-8">
     <form [formGroup]="invoiceInfoForm" class="needs-validation">
       <div class="invoice-details row">
         <div class="invoice-details-contact col col-6">
@@ -181,26 +181,7 @@
                   />
                 </td>
               </tr>
-              <tr>
-                <td class="lft-txt">
-                  <input
-                    value="Due Date"
-                    id="dueDateLabel"
-                    class="bld text-left w100"
-                    type="text"
-                    name="due_date_label"
-                  />
-                </td>
-                <td>
-                  <input
-                    id="dueDate"
-                    class="w100"
-                    type="text"
-                    placeholder="Apr 04, 2022"
-                    name="due_date"
-                  />
-                </td>
-              </tr>
+              
             </tbody>
           </table>
         </div>
@@ -360,7 +341,7 @@
                           type="text"
                           value="Discount"
                           class="tax-label"
-                          id="taxLabel"
+                          id="discountLabel"
                           name="tax_name"
                         />
                       </td>
@@ -478,7 +459,9 @@
   <!--.invoice-body END-->
 
   <!--.invoice-sidebar START-->
-  <aside class="invoice-sidebar col col-4"></aside>
+  <aside class="invoice-sidebar col col-4">
+    <button class="btn btn-primary" (click)="downloadAsPDF();">Export To PDF</button>
+  </aside>
   <!--.invoice-sidebar END-->
 </div>
 <!--invoice-->

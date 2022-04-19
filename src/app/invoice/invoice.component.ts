@@ -1,6 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { countries } from '../constants/countries.contstant';
+
+declare var require: any;
+
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
+const htmlToPdfmake = require("html-to-pdfmake");
+(pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-invoice',
@@ -15,6 +21,9 @@ export class InvoiceComponent implements OnInit {
   total:any;
   discount = 0;
   salesTax = 13;
+
+  @ViewChild('pdfTable')
+  pdfTable!: ElementRef;
 
   invoiceInfoForm!: FormGroup;
   constructor(private _fb: FormBuilder) {}
@@ -101,6 +110,14 @@ export class InvoiceComponent implements OnInit {
     }else{
       this.total = sum
     }
+  }
+
+  public downloadAsPDF() {
+    const pdfTable = this.pdfTable.nativeElement;
+    var html = htmlToPdfmake(pdfTable.innerHTML);
+    const documentDefinition = { content: html };
+    pdfMake.createPdf(documentDefinition).download(); 
+     
   }
 
 
