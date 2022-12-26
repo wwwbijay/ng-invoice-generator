@@ -157,3 +157,6 @@ Icon Button Styles
   float: left;
   position: relative;
 }
+.invoice-wrap.print-invoice.row{
+  display: none;
+}
