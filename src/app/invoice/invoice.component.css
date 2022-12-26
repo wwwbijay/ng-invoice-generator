@@ -68,21 +68,19 @@
   flex-direction: column;
   justify-content: space-around;
 }
-.item-table table {
-  text-align: center;
-}
+
 .lineItems td {
   text-align: left;
 }
 #total-section,
-#total-section table {
+#total-section table th {
   text-align: right;
 }
 .item-table table thead {
   background: #333;
   color: #fff;
 }
-.item-table th {
+.item-table thead th {
   padding: 10px;
   text-align: left;
 }
@@ -131,4 +129,29 @@
     content: "%";
     pointer-events: none;
     opacity: 0.6;
+}
+
+
+/* Print Styles */
+
+.print-invoice-body{
+  width: 590px;
+  font-size: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.bill tr td:first-child{
+  text-align: right;
+}
+
+.print-invoice-body .subtotal-table td{
+  text-align: left;
+  padding-left: 20px;
+}
+
+.print-invoice-body .subtotal-table{
+  margin-top: 20px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
 }

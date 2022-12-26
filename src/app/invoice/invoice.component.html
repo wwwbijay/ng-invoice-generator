@@ -22,85 +22,82 @@
           </div>
           <div class="contact-from">
             <input
-            #address1
+              #address1
               type="text"
               id="address1"
               class="adr bld f20"
               placeholder="Your Company"
             />
-
+            <br />
             <input
-            #custName
+              #custName
               type="text"
               id="custName"
               class="adr"
               placeholder="Your Name"
             />
-
+            <br />
             <input
-            #address2
+              #address2
               type="text"
               id="address2"
               class="adr"
               placeholder="Company’s Address"
             />
-
+            <br />
             <input
-            #address3
+              #address3
               type="text"
               class="adr"
               id="address3"
               placeholder="City, State Zip"
             />
-
+            <br />
             <input
-            #companyCountry
+              #companyCountry
               type="text"
               class="adr"
               id="companyCountry"
               placeholder="Country"
               name="company_country"
-              data-json-node="company_country"
-              data-is-array="false"
-              onfocus="InvoiceGenerator.showStateSelect('companyCountry')"
             />
             <br />
           </div>
           <!--.contact-from END-->
           <div class="bill-to">
             <input
-            #billToLabel
+              #billToLabel
               type="text"
               value="Bill To:"
               id="billToLabel"
               class="adr bill-to bld"
-            />
+            /><br />
             <input
-            #billingAddress1
+              #billingAddress1
               type="text"
               id="billingAddress1"
               class="adr"
               placeholder="Your Client’s Company"
             />
-
+            <br />
             <input
-            #billingAddress2
+              #billingAddress2
               type="text"
               id="billingAddress2"
               class="adr"
               placeholder="Client’s Address"
             />
-
+            <br />
             <input
-            #billingAddress3
+              #billingAddress3
               type="text"
               class="adr"
               id="billingAddress3"
               placeholder="City, State Zip"
             />
-
+            <br />
             <input
-            #customerCountry
+              #customerCountry
               type="text"
               class="adr"
               id="customerCountry"
@@ -114,7 +111,7 @@
         <div class="invoice-details-info col col-6">
           <div class="vtop comp-addr-invoice added-placeholder">
             <input
-            #title
+              #title
               class="c-name"
               type="text"
               value="INVOICE"
@@ -127,7 +124,7 @@
               <tr>
                 <td class="lft-txt added-placeholder" width="40%">
                   <input
-                  #invNumberLabel
+                    #invNumberLabel
                     type="text"
                     value="Invoice#"
                     id="invNumberLabel"
@@ -137,7 +134,7 @@
                 </td>
                 <td>
                   <input
-                  #invNumber
+                    #invNumber
                     type="text"
                     class="w100"
                     id="invNumber"
@@ -149,7 +146,7 @@
               <tr>
                 <td class="lft-txt">
                   <input
-                  #invoiceDateLabel
+                    #invoiceDateLabel
                     type="text"
                     value="Invoice Date"
                     id="invoiceDateLabel"
@@ -158,14 +155,18 @@
                   />
                 </td>
                 <td>
-                  <np-datepicker [(ngModel)]="invoiceDate" [ngModelOptions]="{standalone: true}" theme="light"></np-datepicker>
+                  <np-datepicker
+                    [(ngModel)]="invoiceDate"
+                    [ngModelOptions]="{ standalone: true }"
+                    theme="light"
+                  ></np-datepicker>
                 </td>
               </tr>
               <tr></tr>
               <tr>
                 <td class="lft-txt">
                   <input
-                  #dueDateLabel
+                    #dueDateLabel
                     value="Due Date"
                     id="dueDateLabel"
                     class="bld text-left w100"
@@ -174,13 +175,17 @@
                   />
                 </td>
                 <td>
-                  <np-datepicker [(ngModel)]="dueDate" [ngModelOptions]="{standalone: true}"  theme="light"></np-datepicker>
+                  <np-datepicker
+                    [(ngModel)]="dueDate"
+                    [ngModelOptions]="{ standalone: true }"
+                    theme="light"
+                  ></np-datepicker>
                 </td>
               </tr>
               <tr>
                 <td class="lft-txt">
                   <input
-                  #poNumberLabel
+                    #poNumberLabel
                     value="PO Number"
                     id="poNumberLabel"
                     class="bld text-left w100"
@@ -190,7 +195,7 @@
                 </td>
                 <td>
                   <input
-                  #poNumber
+                    #poNumber
                     id="poNumber"
                     type="text"
                     placeholder="00"
@@ -198,7 +203,6 @@
                   />
                 </td>
               </tr>
-              
             </tbody>
           </table>
         </div>
@@ -221,7 +225,7 @@
               </th>
               <th width="10%">
                 <input
-                #itemQtyLabel
+                  #itemQtyLabel
                   type="text"
                   class="bld"
                   value="Qty"
@@ -231,7 +235,7 @@
               </th>
               <th width="15%">
                 <input
-                #itemRateLabel
+                  #itemRateLabel
                   type="text"
                   class="bld"
                   value="Rate"
@@ -241,7 +245,7 @@
               </th>
               <th width="20%">
                 <input
-                #itemAmtLabel
+                  #itemAmtLabel
                   type="text"
                   value="Amount"
                   id="itemAmtLabel"
@@ -334,103 +338,100 @@
                 >
                   <tbody>
                     <tr class="sav-amo">
-                      <td class="bdr-non" width="40%">
+                      <th class="bdr-non" width="40%">
                         <input
-                        #subTotalLabel
+                          #subTotalLabel
                           type="text"
                           value="Sub Total"
                           class="total-label"
                           id="subTotalLabel"
                           name="sub_total_label"
                         />
-                      </td>
+                      </th>
                       <td class="bdr-non">
                         <input
-         
                           type="text"
-                            name="subTotal"
-                            id="subTotal"
-                            class="percent_input readonly"
-                            readonly=""
-                            [(ngModel)]="subTotal"
-                            [ngModelOptions]="{standalone: true}"
-                          />
+                          name="subTotal"
+                          id="subTotal"
+                          class="percent_input readonly"
+                          readonly=""
+                          [(ngModel)]="subTotal"
+                          [ngModelOptions]="{ standalone: true }"
+                        />
                       </td>
                     </tr>
 
                     <tr class="text-right">
-                      <td width="40%">
+                      <th width="40%">
                         <input
-                        #discountLabel
+                          (change)="calcTotal()"
+                          #discountLabel
                           type="text"
                           value="Discount"
                           class="tax-label"
                           id="discountLabel"
                           name="tax_name"
                         />
-                      </td>
+                      </th>
                       <td>
                         <div class="tax_percent">
                           <input
-                          (change)="calcTotal()"
+                            (change)="calcTotal()"
                             type="text"
                             name="discount_percent_input"
-                            class="percent_input "
+                            class="percent_input"
                             [(ngModel)]="discount"
-                            [ngModelOptions]="{standalone: true}"
+                            [ngModelOptions]="{ standalone: true }"
                           />
                         </div>
                       </td>
                     </tr>
 
-
                     <tr class="text-right">
-                      <td width="40%">
+                      <th width="40%">
                         <input
-                        #taxLabel
+                          #taxLabel
                           type="text"
                           value="Sales Tax"
                           class="tax-label"
                           id="taxLabel"
                           name="tax_name"
                         />
-                      </td>
+                      </th>
                       <td>
                         <div class="tax_percent">
                           <input
-                          (change)="calcTotal()"
+                            (change)="calcTotal()"
                             type="text"
                             name="tax_percent_input"
                             class="percent_input"
                             [(ngModel)]="salesTax"
-                            [ngModelOptions]="{standalone: true}"
+                            [ngModelOptions]="{ standalone: true }"
                           />
                         </div>
                       </td>
                     </tr>
                     <tr class="tot">
-                      <td width="40%">
+                      <th width="40%">
                         <input
-                        #totalLabel
+                          #totalLabel
                           type="text"
                           value="TOTAL"
                           class="total-label"
                           id="totalLabel"
                           name="total_label"
                         />
-                      </td>
+                      </th>
                       <td>
                         <input
-                       
-                        type="text"
-                        readonly=""
+                          type="text"
+                          readonly=""
                           name="total"
                           id="total"
                           class="percent_input readonly"
                           [(ngModel)]="total"
-                          [ngModelOptions]="{standalone: true}"
+                          [ngModelOptions]="{ standalone: true }"
                         />
-                       
                       </td>
                     </tr>
                   </tbody>
@@ -444,7 +445,7 @@
       <div class="invoice-footer">
         <div class="added-placeholder">
           <input
-          #notesLabel
+            #notesLabel
             type="text"
             class="terms bld"
             value="Notes"
@@ -454,7 +455,7 @@
         </div>
         <div>
           <textarea
-          #customerNotes
+            #customerNotes
             class="note"
             id="customerNotes"
             name="notes"
@@ -465,7 +466,7 @@
         <div class="terms-holder">
           <div class="field">
             <input
-            #termsLabel
+              #termsLabel
               type="text"
               id="termsLabel"
               class="input-label bld"
@@ -476,7 +477,7 @@
           <div class="value">
             <div class="expandingText">
               <textarea
-              #terms
+                #terms
                 class="terms"
                 placeholder="Terms and conditions - late fees, payment methods, delivery schedule"
               ></textarea>
@@ -491,297 +492,265 @@
 
   <!--.invoice-sidebar START-->
   <aside class="invoice-sidebar col col-4">
-    <button class="btn btn-primary" (click)="downloadAsPDF();">Export To PDF</button>
+    <button class="btn btn-primary" (click)="downloadAsPDF()">
+      Export To PDF
+    </button>
   </aside>
   <!--.invoice-sidebar END-->
 </div>
 <!--invoice-->
 
-
-<div style="visibility: hidden;" class="invoice-wrap row">
+<div class="invoice-wrap print-invoice row">
   <!--.invoice-body START-->
-  <main #pdfTable class="invoice-body col col-8">
-      <div class="invoice-details row">
-        <div class="invoice-details-contact col col-6">
-          <div class="add-logo">
-            <img *ngIf="!!companyLogoPath" src="{{ companyLogoPath }}" />
-          </div>
-          <div class="contact-from">
-            <div class="adr bld f20">
-              {{address1?.value}}
-            </div>
-            <div class="adr">
-              {{custName?.value}}
-            </div>
-            <div class="adr">
-              {{address2?.value}}
-            </div>
-            <div class="adr">
-              {{address3?.value}}
-            </div>
-            <div class="adr">
-              {{companyCountry?.value}}
-            </div>
-
-            <br />
-          </div>
-          <!--.contact-from END-->
-          <div class="bill-to">
-            <div class="adr bill-to bld">
-              {{billToLabel?.value}}
-            </div>
-            <div class="adr">
-              {{billingAddress1?.value}}
-            </div>
-            <div class="adr">
-              {{billingAddress2?.value}}
-            </div>
-            <div class="adr">
-              {{billingAddress3?.value}}
-            </div>
-            <div class="adr">
-              {{billingAddress3?.value}}
-            </div>
-            <div class="adr">
-              {{customerCountry?.value}}
-            </div>
-            
-          </div>
-          <!--.bill-to END-->
+  <main #pdfTable class="invoice-body print-invoice-body">
+    <div class="invoice-details row">
+      <div class="invoice-details-contact col col-6">
+        <div class="add-logo">
+          <img *ngIf="!!companyLogoPath" src="{{ companyLogoPath }}" />
         </div>
-        <!--.invoice-details-contact END-->
-        <div class="invoice-details-info col col-6">
-          <div class="vtop comp-addr-invoice added-placeholder">
-            <div id="title" class="c-name">{{title.value}}</div>
+        <div class="contact-from">
+          <div class="adr bld f20">
+            {{ address1?.value }}
           </div>
-          <table class="bill" width="100%" cellspacing="0" cellpadding="0">
-            <tbody>
-              <tr>
-                <td class="lft-txt added-placeholder" width="40%">
-                  <div class="bld text-left w100">
-                    {{invNumberLabel?.value}}
-                  </div>
-                 
-                </td>
-                <td>
-                  <div class="w100">
-                    {{invNumber.value}}
-                  </div>
-                 
-                </td>
-              </tr>
-              <tr>
-                <td class="lft-txt">
-                  <div class="bld text-left w100">
-                    {{invoiceDateLabel.value}}
-                  </div>
-                  
-                </td>
-                <td>
-                  <div> {{ invoiceDate?.year }} - {{ invoiceDate?.month }} - {{ invoiceDate?.day }}</div>
+          <div class="adr">
+            {{ custName?.value }}
+          </div>
+          <div class="adr">
+            {{ address2?.value }}
+          </div>
+          <div class="adr">
+            {{ address3?.value }}
+          </div>
+          <div class="adr">
+            {{ companyCountry?.value }}
+          </div>
 
-
-                 
-                </td>
-              </tr>
-              <tr></tr>
-              <tr>
-                <td class="lft-txt">
-                  <div class="bld text-left w100">
-                    {{dueDateLabel.value}} 
-                  </div>
-               
-                </td>
-                <td>
-                  <div>
-                    {{dueDate?.year}} - {{ dueDate?.month }} - {{ dueDate?.day }}
-                  </div>
-                 
-                </td>
-              </tr>
-              <tr>
-                <td class="lft-txt">
-                  <div class="bld text-left w100">
-                    {{poNumberLabel.value}}
-                  </div>
-                  
-                </td>
-                <td>
-                  {{poNumber?.value}}
-                
-                </td>
-              </tr>
-              
-            </tbody>
-          </table>
+          <br />
         </div>
-        <!--.invoice-details-info END-->
+        <!--.contact-from END-->
+        <div class="bill-to">
+          <div class="adr bill-to bld">
+            {{ billToLabel?.value }}
+          </div>
+          <div class="adr">
+            {{ billingAddress1?.value }}
+          </div>
+          <div class="adr">
+            {{ billingAddress2?.value }}
+          </div>
+          <div class="adr">
+            {{ billingAddress3?.value }}
+          </div>
+          <div class="adr">
+            {{ billingAddress3?.value }}
+          </div>
+          <div class="adr">
+            {{ customerCountry?.value }}
+          </div>
+        </div>
+        <!--.bill-to END-->
       </div>
-      <!--.invoice-details END-->
-      <div class="item-table">
-        <table class="column" width="100%" cellspacing="0" cellpadding="0">
-          <thead>
-            <tr class="hd">
-              <th class="added-placeholder" width="55%">
-                <div class="bld">
-                  {{itemDescLabel.value}}
-                </div>
-                
-              </th>
-              <th width="10%">
-                <div class="bld">
-                  {{itemQtyLabel.value}}
-                </div>
-              
-              </th>
-              <th width="15%">
-                <div class="bld">
-                  {{itemRateLabel.value}}
-                </div>
-               
-              </th>
-              <th width="20%">
-                <div>
-                  {{itemAmtLabel.value}}
-                </div>
-                
-              </th>
-             
-            </tr>
-          </thead>
-          <tr *ngFor="let itemForm of items.controls; let i = index">
-            <td>
-              {{itemForm?.value.itemDescription}}
-            </td>
-            <td>
-              {{itemForm?.value.qty}}
-            </td>
-            <td>
-              {{itemForm?.value.rate}}
-            </td>
-            <td>
-              {{itemForm?.value.amount}}
-            </td>
-          </tr >
-          
-
+      <!--.invoice-details-contact END-->
+      <div class="invoice-details-info col col-6">
+        <div class="vtop comp-addr-invoice added-placeholder">
+          <div id="title" class="c-name">{{ title.value }}</div>
+        </div>
+        <table class="bill" width="100%" cellspacing="0" cellpadding="0">
           <tbody>
             <tr>
-              <td id="add-new-item">
-               
+              <td class="lft-txt added-placeholder" width="40%">
+                <div class="bld text-left w100">
+                  {{ invNumberLabel?.value }}
+                </div>
               </td>
-              <td id="total-section" colspan="4">
-                <table
-                  class="subtotal-table"
-                  width="100%"
-                  cellspacing="0"
-                  cellpadding="0"
-                >
-                  <tbody>
-                    <tr class="sav-amo">
-                      <td class="bdr-non" width="40%">
-                        <div class="total-label">
-                          {{subTotalLabel.value}}
-                        </div>
-                      
-                      </td>
-                      <td class="bdr-non">
-                        <div class="percent_input readonly">
-                          {{subTotal}}
-                        </div>
-                        
-                      </td>
-                    </tr>
-
-                    <tr class="text-right">
-                      <td width="40%">
-                        <div class="tax-label">
-                          {{discountLabel.value}}
-                        </div>
-                        
-                      </td>
-                      <td>
-                        <div class="tax_percent">
-                          <div class="percent_input ">
-                            {{discount}}
-                          </div>
-                         
-                        </div>
-                      </td>
-                    </tr>
-
-
-                    <tr class="text-right">
-                      <td width="40%">
-                        <div class="tax-label">
-                          {{taxLabel.value}}
-                        </div>
-                       
-                      </td>
-                      <td>
-                        <div class="tax_percent">
-                          {{salesTax}}
-                         
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="tot">
-                      <td width="40%">
-                        <div class="total-label">
-                          {{totalLabel.value}}
-                        </div>
-                
-                      </td>
-                      <td>
-                        <div class="percent_input readonly">{{total}}</div>
-                   
-                       
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+              <td>
+                <div class="w100">
+                  {{ invNumber.value }}
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="lft-txt">
+                <div class="bld text-left w100">
+                  {{ invoiceDateLabel.value }}
+                </div>
+              </td>
+              <td>
+                <div *ngIf="!!invoiceDate">
+                  {{ invoiceDate?.year }}-{{ invoiceDate?.month }}-{{
+                    invoiceDate?.day
+                  }}
+                </div>
+              </td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td class="lft-txt">
+                <div class="bld text-left w100">
+                  {{ dueDateLabel.value }}
+                </div>
+              </td>
+              <td *ngIf="!!dueDate">
+                <div>
+                  {{ dueDate?.year }}-{{ dueDate?.month }}-{{ dueDate?.day }}
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="lft-txt">
+                <div class="bld text-left w100">
+                  {{ poNumberLabel.value }}
+                </div>
+              </td>
+              <td>
+                {{ poNumber?.value }}
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-      <!--.item-table END-->
-      <div class="invoice-footer">
-        <div class="added-placeholder">
-
-          <div class="terms bld">
-            {{notesLabel.value}}
-          </div>
-          
-        </div>
-        <div>
-          <div class="note">
-            {{customerNotes.value}}
-          </div>
-        
-        </div>
-
-        <div class="terms-holder">
-          <div class="field">
-            <div class="input-label bld">
-              {{termsLabel.value}}
-            </div>
-            
-          </div>
-          <div class="value">
-            <div class="expandingText">
-              <div class="terms">
-                {{terms.value}}
+      <!--.invoice-details-info END-->
+    </div>
+    <!--.invoice-details END-->
+    <div class="item-table">
+      <table class="column" width="100%" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr class="hd">
+            <th class="added-placeholder" width="55%">
+              <div class="bld">
+                {{ itemDescLabel.value }}
               </div>
-              
+            </th>
+            <th width="10%">
+              <div class="bld">
+                {{ itemQtyLabel.value }}
+              </div>
+            </th>
+            <th width="15%">
+              <div class="bld">
+                {{ itemRateLabel.value }}
+              </div>
+            </th>
+            <th width="20%">
+              <div>
+                {{ itemAmtLabel.value }}
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tr *ngFor="let itemForm of items.controls; let i = index">
+          <td>
+            {{ itemForm?.value.itemDescription }}
+          </td>
+          <td>
+            {{ itemForm?.value.qty }}
+          </td>
+          <td>
+            {{ itemForm?.value.rate }}
+          </td>
+          <td>
+            {{ itemForm?.value.amount }}
+          </td>
+        </tr>
+
+        <tbody>
+          <tr>
+            <td id="add-new-item"></td>
+            <td id="total-section" colspan="4">
+              <table
+                class="subtotal-table"
+                width="100%"
+                cellspacing="0"
+                cellpadding="0"
+              >
+                <tbody>
+                  <tr class="sav-amo">
+                    <th class="bdr-non" width="40%">
+                      <div class="total-label">
+                        {{ subTotalLabel.value }}
+                      </div>
+                    </th>
+                    <td class="bdr-non">
+                      <div *ngIf="!!subTotal" class="percent_input">
+                        Rs. {{ subTotal }}
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th width="40%">
+                      <div class="tax-label">
+                        {{ discountLabel.value }}
+                      </div>
+                    </th>
+                    <td>
+                      <div class="tax_percent">
+                        {{ discount }}
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th width="40%">
+                      <div class="tax-label">
+                        {{ taxLabel.value }}
+                      </div>
+                    </th>
+                    <td>
+                      <div class="tax_percent">
+                        {{ salesTax }}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="tot">
+                    <th width="40%">
+                      <div class="total-label">
+                        {{ totalLabel.value }}
+                      </div>
+                    </th>
+                    <td>
+                      <div *ngIf="!!total" class="percent_input">
+                        Rs. {{ total }}
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--.item-table END-->
+    <div class="invoice-footer">
+      <div *ngIf="!!customerNotes?.value" class="added-placeholder">
+        <div class="terms bld">
+          {{ notesLabel.value }}
+        </div>
+      </div>
+      <div>
+        <div class="note">
+          {{ customerNotes?.value }}
+        </div>
+      </div>
+
+      <div class="terms-holder">
+        <div *ngIf="!!terms?.value" class="field">
+          <div class="input-label bld">
+            {{ termsLabel.value }}
+          </div>
+        </div>
+        <div class="value">
+          <div class="expandingText">
+            <div class="terms">
+              {{ terms?.value }}
             </div>
           </div>
         </div>
       </div>
-      <!--.invoice-footer END-->
-  
+    </div>
+    <!--.invoice-footer END-->
   </main>
   <!--.invoice-body END-->
-
 </div>
 <!--invoice-->

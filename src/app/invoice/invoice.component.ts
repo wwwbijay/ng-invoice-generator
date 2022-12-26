@@ -18,18 +18,18 @@ export class InvoiceComponent implements OnInit {
   companyLogo: any;
   companyLogoPath: any;
   countryList: any;
-  subTotal:any;
-  total:any;
+  subTotal: any;
+  total: any;
   discount = 0;
   salesTax = 13;
-  invoiceDate:any;
-  dueDate:any;
+  invoiceDate: any;
+  dueDate: any;
 
   @ViewChild('pdfTable')
   pdfTable!: ElementRef;
 
   invoiceInfoForm!: FormGroup;
-  constructor(private _fb: FormBuilder) {}
+  constructor(private _fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.formInitialize();
@@ -92,37 +92,39 @@ export class InvoiceComponent implements OnInit {
     rate = formGroup.get('rate')?.value;
     formGroup.get('amount')?.patchValue(qty * rate)
     //formGroup.get('amount').patchValue(111);
-    
+
     for (let c of allItems.controls) {
       sum = sum + c.get('amount')?.value;
     }
     this.subTotal = sum;
     this.calcTotal();
-    
+
   }
 
-  calcTotal(){
+  calcTotal() {
     let sum = this.subTotal;
+    let discount = Number(this.discount);
+    let tax = Number(this.salesTax);
 
-    if(!!this.discount){
-      sum = (sum - (this.discount * sum)/100).toFixed(2);
+    console.log(sum);
+
+    if (discount > 0) {
+      sum -= ((discount * sum) / 100);
     }
-    
-    if(!!this.salesTax){
-      this.total = (sum + (this.salesTax * sum)/100).toFixed(2);
-    }else{
-      this.total = sum
+    console.log("After Discount: " + sum);
+
+    if (tax > 0) {
+      sum += (tax * sum) / 100;
     }
+
+    console.log("After Tax: " + sum);
+
+
+    this.total = sum.toFixed(2);
+
   }
 
-  // public downloadAsPDF() {
-  //   const pdfTable = this.pdfTable.nativeElement;
-  //   var html = htmlToPdfmake(pdfTable.innerHTML);
-  //   const documentDefinition = { content: html };
-  //   pdfMake.createPdf(documentDefinition).download(); 
-  // }
-
-  downloadAsPDF(){
+  downloadAsPDF() {
     let pdf = new jsPDF('p', 'px', 'tabloid', true);
     pdf.html(this.pdfTable.nativeElement, {
       callback: (pdf) => {
