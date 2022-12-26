@@ -578,7 +578,7 @@
                   
                 </td>
                 <td>
-                  <div> {{ invoiceDate }}</div>
+                  <div> {{ invoiceDate?.year }} - {{ invoiceDate?.month }} - {{ invoiceDate?.day }}</div>
 
 
                  
@@ -588,13 +588,13 @@
               <tr>
                 <td class="lft-txt">
                   <div class="bld text-left w100">
-                    {{dueDateLabel.value}}
+                    {{dueDateLabel.value}} 
                   </div>
                
                 </td>
                 <td>
                   <div>
-                    {{dueDate}}
+                    {{dueDate?.year}} - {{ dueDate?.month }} - {{ dueDate?.day }}
                   </div>
                  
                 </td>
@@ -607,7 +607,7 @@
                   
                 </td>
                 <td>
-                  {{poNumber.value}}
+                  {{poNumber?.value}}
                 
                 </td>
               </tr>
@@ -663,78 +663,12 @@
               {{itemForm?.value.amount}}
             </td>
           </tr >
-          <!-- <tbody class="row-item">
-            <ng-container formArrayName="items">
-              <ng-container
-                *ngFor="let itemForm of items.controls; let i = index"
-              >
-                <tr [formGroupName]="i">
-                  <td>
-                    <textarea
-                      type="text"
-                      class="w100"
-                      formControlName="itemDescription"
-                      placeholder="Enter item name/description"
-                      data-gramm_editor="false"
-                    ></textarea>
-                  </td>
-                  <td>
-                    <input
-                      #qty{{i}}
-                      formControlName="qty"
-                      type="number"
-                      class="w100"
-                      (change)="updateAmount(i)"
-                    />
-                  </td>
-                  <td>
-                    <input
-                      #rate{{i}}
-                      formControlName="rate"
-                      type="text"
-                      class="w100"
-                      (change)="updateAmount(i)"
-                    />
-                  </td>
-                  <td>
-                    <input
-                      formControlName="amount"
-                      type="text"
-                      readonly=""
-                      title="Amount is calculated automatically."
-                      class="readonly"
-                    />
-                  </td>
-                  <td class="dele-icon">
-                    <div>
-                      <a
-                        class="closeicon hide"
-                        (click)="deleteLineItem(i)"
-                        title="Delete Row"
-                        ><span class="material-icons">cancel</span></a
-                      >
-                    </div>
-                  </td>
-                </tr>
-              </ng-container>
-            </ng-container>
-          </tbody> -->
+          
 
           <tbody>
             <tr>
               <td id="add-new-item">
-                <!-- <div>
-                  <a
-                    (click)="addLineItem()"
-                    class="icon_button"
-                    title="Add Row"
-                  >
-                    <span class="circle">
-                      <span class="material-icons">add</span>
-                    </span>
-                    <span class="text">Add Item</span>
-                  </a>
-                </div> -->
+               
               </td>
               <td id="total-section" colspan="4">
                 <table

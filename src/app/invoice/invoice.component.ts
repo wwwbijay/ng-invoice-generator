@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { jsPDF } from 'jspdf';
 
 declare var require: any;
 
@@ -114,13 +115,19 @@ export class InvoiceComponent implements OnInit {
     }
   }
 
-  public downloadAsPDF() {
-    const pdfTable = this.pdfTable.nativeElement;
-    var html = htmlToPdfmake(pdfTable.innerHTML);
-    const documentDefinition = { content: html };
-    pdfMake.createPdf(documentDefinition).download(); 
-     
+  // public downloadAsPDF() {
+  //   const pdfTable = this.pdfTable.nativeElement;
+  //   var html = htmlToPdfmake(pdfTable.innerHTML);
+  //   const documentDefinition = { content: html };
+  //   pdfMake.createPdf(documentDefinition).download(); 
+  // }
+
+  downloadAsPDF(){
+    let pdf = new jsPDF('p', 'px', 'tabloid', true);
+    pdf.html(this.pdfTable.nativeElement, {
+      callback: (pdf) => {
+        pdf.save('Invoice.pdf');
+      },
+    });
   }
-
-
 }
