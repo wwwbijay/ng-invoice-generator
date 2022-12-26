@@ -21,6 +21,8 @@ export class InvoiceComponent implements OnInit {
   total:any;
   discount = 0;
   salesTax = 13;
+  invoiceDate:any;
+  dueDate:any;
 
   @ViewChild('pdfTable')
   pdfTable!: ElementRef;
