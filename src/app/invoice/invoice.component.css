@@ -10,17 +10,39 @@
 }
 .invoice-wrap {
   display: flex;
+  justify-content: space-around;
 }
-.invoice-body {
+.invoice-body,
+.invoice-sidebar {
   background: #fff;
-  width: 70%;
   padding: 50px 30px;
   margin: 50px 0;
   box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 30px 0px;
 }
-.invoice-sidebar {
-  width: 30%;
+.invoice-body {
+  width: 70%;
 }
+.invoice-sidebar {
+  width: 25%;
+}
+.sidebar_widget ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sidebar_widget ul .material-icons {
+  position: relative;
+  top: 7px;
+  margin-right: 8px;
+}
+.sidebar_widget ul a {
+  display: block;
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  line-height: 30px;
+}
+
 .add-logo {
   width: 200px;
   overflow: hidden;
@@ -99,15 +121,15 @@
   border-bottom: 1px solid #ddd;
   padding: 5px;
 }
-.row-item input[type='text'],
-.row-item input[type='number'],
-.row-item textarea{
+.row-item input[type="text"],
+.row-item input[type="number"],
+.row-item textarea {
   padding: 8px;
   border: 2px solid transparent;
 }
-.row-item input[type='text']:hover,
-.row-item input[type='number']:hover,
-.row-item textarea:hover{
+.row-item input[type="text"]:hover,
+.row-item input[type="number"]:hover,
+.row-item textarea:hover {
   border: 2px dashed #eee;
 }
 .subtotal-table {
@@ -117,40 +139,39 @@
   font-size: 14px;
   text-align: center;
 }
-.tax_percent{
+.tax_percent {
   position: relative;
   padding-right: 30px;
   display: inline-block;
 }
-.tax_percent:after{
-    position: absolute;
-    right: 5px;
-    top: 1px;
-    content: "%";
-    pointer-events: none;
-    opacity: 0.6;
+.tax_percent:after {
+  position: absolute;
+  right: 5px;
+  top: 1px;
+  content: "%";
+  pointer-events: none;
+  opacity: 0.6;
 }
-
 
 /* Print Styles */
 
-.print-invoice-body{
+.print-invoice-body {
   width: 590px;
   font-size: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-.bill tr td:first-child{
+.bill tr td:first-child {
   text-align: right;
 }
 
-.print-invoice-body .subtotal-table td{
+.print-invoice-body .subtotal-table td {
   text-align: left;
   padding-left: 20px;
 }
 
-.print-invoice-body .subtotal-table{
+.print-invoice-body .subtotal-table {
   margin-top: 20px;
   border-top: 1px solid #333;
   padding-top: 20px;

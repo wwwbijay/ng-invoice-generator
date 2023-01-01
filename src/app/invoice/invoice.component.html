@@ -1,6 +1,6 @@
 <div class="invoice-wrap row">
   <!--.invoice-body START-->
-  <main class="invoice-body col col-8">
+  <main class="invoice-body">
     <form [formGroup]="invoiceInfoForm" class="needs-validation">
       <div class="invoice-details row">
         <div class="invoice-details-contact col col-6">
@@ -491,10 +491,21 @@
   <!--.invoice-body END-->
 
   <!--.invoice-sidebar START-->
-  <aside class="invoice-sidebar col col-4">
-    <button class="btn btn-primary" (click)="downloadAsPDF()">
-      Export To PDF
-    </button>
+  <aside class="invoice-sidebar">
+    <div class="sidebar_widget">
+      <ul>
+        <li>
+          <a class="btn btn-primary" (click)="downloadAsPDF()">
+            <span class="material-icons">
+              download
+              </span>
+            Export To PDF
+          </a>
+        </li>
+      </ul>
+      
+    </div>
+    
   </aside>
   <!--.invoice-sidebar END-->
 </div>
