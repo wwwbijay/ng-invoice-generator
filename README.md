@@ -1,6 +1,10 @@
-# InvoiceGenerator
+# NG Invoice generator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+NG Invoice generator allows you quickly make invoices and save them as PDF. 
+
+This project was built with angular version 13.1.2.
+
+Demo: http://bijayjoshi.com.np/pr/invoice-gen/
 
 ## Development server
 
